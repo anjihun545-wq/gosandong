@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d5f49" />
+  <meta name="description" content="고산동 주민자치회 - 고산동, 우리가 담다" />
+  <title>고산동, 우리가 담다</title>
+  <style>
+    :root{
+      --forest:#0d5f49;
+      --forest-2:#174f42;
+      --mint:#71b99a;
+      --mint-2:#dff3e9;
+      --mint-3:#eef8f3;
+      --cream:#f6f1e3;
+      --cream-2:#fbf9f2;
+      --coral:#ed8f78;
+      --yellow:#e7bb59;
+      --ink:#10241e;
+      --muted:#64756f;
+      --line:#dce8e2;
+      --white:#ffffff;
+      --shadow:0 20px 60px rgba(16,55,44,.09);
+      --shadow-sm:0 10px 30px rgba(16,55,44,.07);
+      --radius-xl:36px;
+      --radius-lg:28px;
+      --radius-md:20px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:#f5f8f6}
+    body{
+      margin:0;
+      font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 8% 2%, rgba(113,185,154,.15), transparent 24%),
+        radial-gradient(circle at 95% 14%, rgba(231,187,89,.12), transparent 18%),
+        #f5f8f6;
+      min-height:100vh;
+      -webkit-font-smoothing:antialiased;
+      letter-spacing:-.015em;
+    }
+    img{display:block;max-width:100%}
+    button,a{font:inherit}
+    a{color:inherit;text-decoration:none}
+    .shell{width:min(calc(100% - 40px),var(--max));margin-inline:auto}
+
+    /* HEADER */
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(245,248,246,.82);
+      backdrop-filter:blur(18px) saturate(1.1);
+      border-bottom:1px solid rgba(13,95,73,.08);
+    }
+    .header-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:-.04em;color:var(--ink)}
+    .brand-mark{
+      width:30px;height:30px;border-radius:10px;
+      background:var(--forest);position:relative;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)
+    }
+    .brand-mark::before{content:"";position:absolute;width:9px;height:9px;left:10px;top:10px;background:var(--yellow);border-radius:3px;transform:rotate(45deg)}
+    .brand-mark::after{content:"";position:absolute;width:4px;height:4px;right:5px;top:5px;border-radius:50%;background:var(--coral)}
+    nav{display:flex;gap:6px;align-items:center}
+    nav a{padding:10px 14px;border-radius:999px;color:#64756f;font-size:13px;font-weight:760;transition:.2s ease}
+    nav a:hover{background:#fff;color:var(--forest)}
+    nav a.active{background:var(--ink);color:#fff}
+
+    /* HERO */
+    .hero{padding:34px 0 72px}
+    .hero-panel{
+      min-height:560px;position:relative;overflow:hidden;
+      display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+      padding:64px 64px 58px;border-radius:44px;
+      background:
+        radial-gradient(circle at 78% 15%, rgba(255,255,255,.18), transparent 21%),
+        radial-gradient(circle at 100% 100%, rgba(231,187,89,.22), transparent 28%),
+        linear-gradient(135deg,#68b492 0%,#4f9f80 56%,#347d65 100%);
+      box-shadow:0 28px 90px rgba(38,100,78,.17)
+    }
+    .hero-panel::before{
+      content:"";position:absolute;inset:0;pointer-events:none;opacity:.2;
+      background-image:linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);
+      background-size:42px 42px;
+      mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.9) 72%,rgba(0,0,0,1) 100%);
+    }
+    .hero-copywrap{position:relative;z-index:2;max-width:670px}
+    .eyebrow{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.82);font-size:12px;font-weight:850;letter-spacing:.13em;text-transform:uppercase;margin-bottom:28px}
+    .eyebrow i{display:block;width:7px;height:7px;background:#fff2c4;border-radius:50%}
+    h1{margin:0;color:#fff;font-size:clamp(50px,6.8vw,82px);line-height:.98;letter-spacing:-.075em;font-weight:950}
+    h1 span{display:block;color:#fff3c9;margin-top:9px}
+    .hero-copy{margin:28px 0 0;max-width:570px;color:rgba(255,255,255,.82);font-size:17px;line-height:1.72;font-weight:560}
+    .hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}
+    .hero-tags span{padding:9px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.10);color:#fff;font-size:12px;font-weight:760;backdrop-filter:blur(8px)}
+
+    .hero-side{position:relative;z-index:2;display:grid;gap:14px;align-self:stretch}
+    .project-card{
+      align-self:end;padding:28px;border-radius:30px;background:rgba(255,255,255,.93);
+      border:1px solid rgba(255,255,255,.55);box-shadow:0 20px 50px rgba(20,74,57,.14)
+    }
+    .project-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:40px}
+    .project-label{font-size:11px;font-weight:900;letter-spacing:.14em;color:var(--forest)}
+    .project-year{font-size:12px;color:#84948e;font-weight:850}
+    .project-card strong{display:block;font-size:34px;line-height:1.13;letter-spacing:-.06em;margin-bottom:20px}
+    .project-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+    .project-card .rule{height:1px;background:var(--line);margin:26px 0 18px}
+    .project-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:11px;color:#71847d;font-weight:800}
+    .dot-set{display:flex;gap:5px}.dot-set i{display:block;width:7px;height:7px;border-radius:50%}.dot-set i:nth-child(1){background:var(--forest)}.dot-set i:nth-child(2){background:var(--yellow)}.dot-set i:nth-child(3){background:var(--coral)}
+    .mini-card{
+      justify-self:end;width:72%;padding:17px 18px;border-radius:20px;background:rgba(10,59,46,.46);color:#fff;border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(10px)
+    }
+    .mini-card b{display:block;font-size:13px;margin-bottom:4px}.mini-card span{font-size:11px;color:rgba(255,255,255,.68)}
+
+    main{padding:28px 0 120px}
+    section{scroll-margin-top:92px;margin-bottom:120px}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:30px}
+    .section-kicker{display:flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.12em;font-weight:900;color:var(--forest);margin-bottom:11px;text-transform:uppercase}
+    .section-kicker::before{content:"";width:19px;height:3px;border-radius:99px;background:linear-gradient(90deg,var(--forest),var(--mint))}
+    h2{margin:0;font-size:clamp(34px,4.3vw,52px);line-height:1.04;letter-spacing:-.06em;font-weight:950}
+    .section-note{color:var(--muted);font-size:12px;font-weight:700}
+
+    /* STORY */
+    .story-frame{padding:14px;border-radius:34px;background:#edf4f0;border:1px solid var(--line)}
+    .map-stack{display:grid;gap:18px}
+    .map-card{background:#fff;border:1px solid rgba(13,95,73,.1);border-radius:24px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .25s ease,box-shadow .25s ease}
+    .map-card:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(16,55,44,.11)}
+    .map-meta{display:flex;align-items:center;justify-content:space-between;padding:17px 18px;border-bottom:1px solid #e9efec;background:#fff}
+    .map-meta-left{display:flex;align-items:center;gap:10px;min-width:0}
+    .map-meta b{font-size:14px;letter-spacing:-.025em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .doc-icon{width:31px;height:31px;border-radius:10px;background:var(--mint-3);display:grid;place-items:center;color:var(--forest);font-size:13px;font-weight:950}
+    .pill{display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:28px;padding:0 10px;border-radius:999px;background:#f3f7f5;color:#6d7f78;font-size:11px;font-weight:900}
+    .zoomable{cursor:zoom-in;width:100%;background:#e8eee8}
+
+    /* ACTIVITY */
+    .activity-grid{display:grid;grid-template-columns:1.12fr .88fr .88fr;grid-auto-rows:280px;gap:16px}
+    .activity-card{margin:0;position:relative;border-radius:26px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+    .activity-card:first-child{grid-row:span 2}
+    .activity-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+    .activity-card:hover img{transform:scale(1.035)}
+    .activity-card::after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(180deg,transparent,rgba(9,39,31,.7));pointer-events:none}
+    .activity-card figcaption{position:absolute;z-index:2;left:18px;right:18px;bottom:17px;display:flex;align-items:end;justify-content:space-between;gap:10px;color:#fff}
+    .activity-card figcaption strong{font-size:15px;letter-spacing:-.025em;text-shadow:0 2px 14px rgba(0,0,0,.25)}
+    .activity-card figcaption span{display:grid;place-items:center;width:30px;height:30px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);font-size:10px;font-weight:900;backdrop-filter:blur(8px)}
+
+    /* DOWNLOAD */
+    .download-card{
+      position:relative;overflow:hidden;padding:42px 44px;border-radius:32px;background:#10241e;color:#fff;box-shadow:0 24px 70px rgba(10,40,31,.14)
+    }
+    .download-card::before{content:"";position:absolute;right:-110px;top:-150px;width:360px;height:360px;border-radius:50%;background:rgba(113,185,154,.2)}
+    .download-card::after{content:"";position:absolute;right:115px;bottom:-140px;width:220px;height:220px;border-radius:50%;background:rgba(231,187,89,.14)}
+    .download-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px}
+    .download-copy{display:flex;align-items:center;gap:18px}
+    .file-badge{flex:0 0 auto;width:64px;height:64px;border-radius:20px;background:#fff;color:var(--forest);display:grid;place-items:center;font-size:13px;font-weight:950;box-shadow:0 12px 28px rgba(0,0,0,.12)}
+    .download-card h3{font-size:28px;letter-spacing:-.05em;margin:0 0 8px}
+    .download-card p{margin:0;color:rgba(255,255,255,.62);font-size:13px;line-height:1.5}
+    .download-btn{display:inline-flex;align-items:center;gap:9px;padding:15px 19px;border-radius:15px;background:#fff;color:var(--ink);font-weight:900;box-shadow:0 10px 24px rgba(0,0,0,.12);white-space:nowrap;transition:.2s ease}
+    .download-btn:hover{transform:translateY(-2px);background:#fff5d6}
+    .download-btn svg{width:18px;height:18px}
+
+    footer{padding:0 0 118px;color:#81918b;text-align:center;font-size:11px;font-weight:700}
+    .mobile-nav{display:none}
+
+    .modal{position:fixed;inset:0;background:rgba(8,25,20,.94);z-index:100;display:none;overflow:auto;padding:22px}
+    .modal.open{display:block}
+    .modal-inner{width:min(100%,1000px);margin:0 auto;position:relative}
+    .modal img{width:100%;height:auto;border-radius:18px;background:#fff}
+    .close{position:sticky;top:0;margin:0 0 12px auto;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;border-radius:50%;background:#fff;color:#153f34;font-size:24px;font-weight:900;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.22)}
+
+    .reveal{opacity:0;transform:translateY(18px);transition:.55s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    @media (max-width:900px){
+      .hero-panel{grid-template-columns:1fr;min-height:auto;padding:54px 44px}
+      .hero-side{grid-template-columns:1fr .45fr;align-items:end}
+      .project-card{align-self:auto}
+      .mini-card{width:100%;align-self:end}
+      .activity-grid{grid-template-columns:1fr 1fr;grid-auto-rows:250px}
+      .activity-card:first-child{grid-row:span 1;grid-column:1/-1}
+    }
+
+    @media (max-width:760px){
+      .shell{width:min(calc(100% - 24px),var(--max))}
+      header nav{display:none}
+      .header-inner{height:60px}
+      .brand{font-size:15px}
+      .brand-mark{width:27px;height:27px}.brand-mark::before{left:9px;top:9px}
+      .hero{padding:18px 0 54px}
+      .hero-panel{padding:38px 24px 24px;border-radius:30px;gap:34px;box-shadow:0 18px 50px rgba(38,100,78,.14)}
+      .hero-panel::before{background-size:34px 34px}
+      .eyebrow{font-size:10px;margin-bottom:20px}
+      h1{font-size:49px}
+      .hero-copy{font-size:14px;margin-top:20px;line-height:1.68}
+      .hero-tags{margin-top:22px;gap:6px}.hero-tags span{font-size:10px;padding:8px 10px}
+      .hero-side{grid-template-columns:1fr;gap:10px}
+      .project-card{padding:22px;border-radius:24px}
+      .project-top{margin-bottom:28px}
+      .project-card strong{font-size:28px;margin-bottom:16px}
+      .project-card p{font-size:12px}
+      .mini-card{display:none}
+      main{padding-top:4px;padding-bottom:80px}
+      section{margin-bottom:82px}
+      .section-head{align-items:flex-start;margin-bottom:20px}
+      .section-note{display:none}
+      h2{font-size:34px}
+      .section-kicker{font-size:10px}
+      .story-frame{padding:8px;border-radius:26px}
+      .map-stack{gap:10px}
+      .map-card{border-radius:19px}
+      .map-meta{padding:12px}
+      .map-meta b{font-size:12px}
+      .doc-icon{width:28px;height:28px;border-radius:9px}
+      .pill{height:25px;min-width:32px;font-size:10px}
+      .activity-grid{display:flex;overflow-x:auto;gap:12px;scroll-snap-type:x mandatory;padding-bottom:8px;margin-right:-12px;scrollbar-width:none}
+      .activity-grid::-webkit-scrollbar{display:none}
+      .activity-card,.activity-card:first-child{min-width:84%;height:auto;aspect-ratio:4/3;grid-column:auto;grid-row:auto;scroll-snap-align:start;border-radius:20px}
+      .activity-card figcaption{left:14px;right:14px;bottom:13px}.activity-card figcaption strong{font-size:13px}
+      .download-card{padding:24px 20px;border-radius:24px}
+      .download-inner{grid-template-columns:1fr;gap:22px}
+      .download-copy{align-items:flex-start}
+      .file-badge{width:54px;height:54px;border-radius:17px;font-size:11px}
+      .download-card h3{font-size:23px}
+      .download-card p{font-size:12px}
+      .download-btn{width:100%;justify-content:center}
+      footer{padding-bottom:94px}
+      .mobile-nav{
+        display:grid;grid-template-columns:repeat(3,1fr);position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:60;
+        padding:6px;border-radius:18px;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);box-shadow:0 16px 48px rgba(20,67,54,.16);border:1px solid rgba(21,83,68,.08)
+      }
+      .mobile-nav a{display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:12px;font-size:11px;font-weight:850;color:#789086}
+      .mobile-nav a.active{background:var(--ink);color:#fff}
+      .modal{padding:10px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="고산동, 우리가 담다 홈">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>고산동, 우리가 담다</span>
+      </a>
+      <nav aria-label="주요 메뉴">
+        <a href="#story" class="active">고산동 이야기</a>
+        <a href="#activity">활동내역</a>
+        <a href="#download">자료 다운로드</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="top" class="hero">
+    <div class="shell hero-panel">
+      <div class="hero-copywrap">
+        <div class="eyebrow"><i></i> GOSAN-DONG COMMUNITY ARCHIVE</div>
+        <h1>우리 동네<br><span>고산동 이야기</span></h1>
+        <p class="hero-copy">다정한 마을, 우리가 담은 이야기.<br>고산동 곳곳의 기록과 주민자치회의 활동을 한 화면에 담았습니다.</p>
+        <div class="hero-tags" aria-label="프로젝트 키워드">
+          <span>고산동 이야기</span><span>주민자치회</span><span>마을 기록</span>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <aside class="project-card" aria-label="프로젝트 안내">
+          <div class="project-top">
+            <span class="project-label">PROJECT 2026</span>
+            <span class="project-year">GOSAN-DONG</span>
+          </div>
+          <strong>고산동,<br>우리가 담다</strong>
+          <p>고산동의 역사와 지명, 마을 이야기를 담은 기록을 모바일에서도 편하게 만나보세요.</p>
+          <div class="rule"></div>
+          <div class="project-foot">
+            <span>고산동 주민자치회</span>
+            <span class="dot-set" aria-hidden="true"><i></i><i></i><i></i></span>
+          </div>
+        </aside>
+        <div class="mini-card" aria-hidden="true">
+          <b>다정한 마을</b>
+          <span>우리가 담은 고산동의 이야기</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="shell">
+    <section id="story" class="reveal">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">01 / GOSAN-DONG STORY</div>
+          <h2>고산동 이야기</h2>
+        </div>
+        <div class="section-note">이미지를 누르면 크게 볼 수 있어요</div>
+      </div>
+
+      <div class="story-frame">
+        <div class="map-stack">
+          <article class="map-card">
+            <div class="map-meta">
+              <div class="map-meta-left"><span class="doc-icon">01</span><b>다정한 마을, 우리가 담은 이야기</b></div>
+              <span class="pill">PAGE 01</span>
+            </div>
+            <img class="zoomable" src="assets/gosan-map-01.jpg" alt="고산동 이야기 지도 첫 번째 페이지" loading="eager" />
+          </article>
+          <article class="map-card">
+            <div class="map-meta">
+              <div class="map-meta-left"><span class="doc-icon">02</span><b>우리 동네 고산동 지도</b></div>
+              <span class="pill">PAGE 02</span>
+            </div>
+            <img class="zoomable" src="assets/gosan-map-02.jpg" alt="고산동 이야기 지도 두 번째 페이지" loading="lazy" />
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="activity" class="reveal">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">02 / COMMUNITY ACTIVITY</div>
+          <h2>고산동 주민자치회<br>활동내역</h2>
+        </div>
+        <div class="section-note">주민과 함께 만든 고산동의 기록</div>
+      </div>
+
+      <div class="activity-grid">
+        <figure class="activity-card"><img src="assets/activity-01.webp" alt="고산동 주민자치회 활동 사진 1" loading="lazy"><figcaption><strong>주민자치회 활동</strong><span>01</span></figcaption></figure>
+        <figure class="activity-card"><img src="assets/activity-02.webp" alt="고산동 주민자치회 활동 사진 2" loading="lazy"><figcaption><strong>주민자치회 활동</strong><span>02</span></figcaption></figure>
+        <figure class="activity-card"><img src="assets/activity-03.webp" alt="고산동 주민자치회 활동 사진 3" loading="lazy"><figcaption><strong>주민자치회 활동</strong><span>03</span></figcaption></figure>
+        <figure class="activity-card"><img src="assets/activity-04.webp" alt="고산동 주민자치회 활동 사진 4" loading="lazy"><figcaption><strong>주민자치회 활동</strong><span>04</span></figcaption></figure>
+        <figure class="activity-card"><img src="assets/activity-05.webp" alt="고산동 주민자치회 활동 사진 5" loading="lazy"><figcaption><strong>주민자치회 활동</strong><span>05</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section id="download" class="reveal">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">03 / DOWNLOAD</div>
+          <h2>자료 다운로드</h2>
+        </div>
+      </div>
+
+      <div class="download-card">
+        <div class="download-inner">
+          <div class="download-copy">
+            <div class="file-badge">PDF</div>
+            <div>
+              <h3>고산동 이야기 지도 PDF</h3>
+              <p>고산동의 역사·지명·마을 이야기가 담긴 2페이지 자료입니다.</p>
+            </div>
+          </div>
+          <a class="download-btn" href="downloads/gosan-map.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+            PDF 다운로드
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">고산동 주민자치회 · 2026</footer>
+
+  <div class="mobile-nav" aria-label="모바일 메뉴">
+    <a href="#story" class="active">이야기</a>
+    <a href="#activity">활동내역</a>
+    <a href="#download">자료</a>
+  </div>
+
+  <div class="modal" role="dialog" aria-modal="true" aria-label="이미지 확대보기">
+    <div class="modal-inner">
+      <button class="close" type="button" aria-label="닫기">×</button>
+      <img src="" alt="확대 이미지" />
+    </div>
+  </div>
+
+  <script>
+    const sectionLinks = [...document.querySelectorAll('nav a, .mobile-nav a')];
+    const sections = [...document.querySelectorAll('main section')];
+    const setActive = id => sectionLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+
+    const sectionObserver = new IntersectionObserver(entries => {
+      const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActive(visible.target.id);
+    }, {rootMargin:'-25% 0px -60% 0px', threshold:[0,.1,.25,.5]});
+    sections.forEach(s => sectionObserver.observe(s));
+
+    const revealObserver = new IntersectionObserver(entries => entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add('in'); revealObserver.unobserve(e.target); }
+    }), {threshold:.08});
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const modal = document.querySelector('.modal');
+    const modalImg = modal.querySelector('img');
+    const closeBtn = modal.querySelector('.close');
+    document.querySelectorAll('.zoomable').forEach(img => img.addEventListener('click', () => {
+      modalImg.src = img.src; modalImg.alt = img.alt; modal.classList.add('open'); document.body.style.overflow='hidden';
+    }));
+    const closeModal = () => { modal.classList.remove('open'); modalImg.src=''; document.body.style.overflow=''; };
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+  </script>
+</body>
+</html>
